@@ -1,0 +1,139 @@
+{
+    "lanes": [
+        {
+            "lane_name": "Worker",
+            "address": "0x8EE57a0966Db56BaDbd3Da402e8D3055D0476fbd"
+        },
+        {
+            "lane_name": "Moderator",
+            "address": "0x8EE57a0966Db56BaDbd3Da402e8D3055D0476fbd"
+        },
+        {
+            "lane_name": "Administator",
+            "address": "0x8EE57a0966Db56BaDbd3Da402e8D3055D0476fbd"
+        }
+    ],
+    "functions": [
+        {
+            "function_name": "Create conditions",
+            "assignee": [
+                "Worker"
+            ],
+            "actions": {
+                "Set": [
+                    {
+                        "type": "string",
+                        "name": "conditions",
+                        "variable": "null"
+                    },
+                    {
+                        "type": "uint",
+                        "name": "deadline",
+                        "variable": "null"
+                    },
+                    {
+                        "type": "address",
+                        "name": "partner",
+                        "variable": "null"
+                    }
+                ],
+                "Get": [],
+                "Pay": [],
+                "End": []
+            }
+        },
+        {
+            "function_name": "Check answer",
+            "assignee": [
+                "Worker"
+            ],
+            "actions": {
+                "Set": [],
+                "Get": [
+                    {
+                        "type": "string",
+                        "name": "answer",
+                        "variable": "null"
+                    }
+                ],
+                "Pay": [],
+                "End": []
+            }
+        },
+        {
+            "function_name": "Check conditions",
+            "assignee": [
+                "Moderator",
+                "Administator"
+            ],
+            "actions": {
+                "Set": [],
+                "Get": [
+                    {
+                        "type": "string",
+                        "name": "conditions",
+                        "variable": "null"
+                    },
+                    {
+                        "type": "uint",
+                        "name": "deadline",
+                        "variable": "null"
+                    }
+                ],
+                "Pay": [],
+                "End": []
+            }
+        },
+        {
+            "function_name": "Answer",
+            "assignee": [
+                "Moderator"
+            ],
+            "actions": {
+                "Set": [
+                    {
+                        "type": "string",
+                        "name": "answer",
+                        "variable": "null"
+                    }
+                ],
+                "Get": [],
+                "Pay": [],
+                "End": []
+            }
+        },
+        {
+            "function_name": "Decline",
+            "assignee": [
+                "Worker",
+                "Administator"
+            ],
+            "actions": {
+                "Set": [],
+                "Get": [],
+                "Pay": [],
+                "End": [
+                    {
+                        "status": "Failed"
+                    }
+                ]
+            }
+        },
+        {
+            "function_name": "Approve",
+            "assignee": [
+                "Administator"
+            ],
+            "actions": {
+                "Set": [],
+                "Get": [],
+                "Pay": [],
+                "End": [
+                    {
+                        "status": "Success"
+                    }
+                ]
+            }
+        }
+    ]
+}
