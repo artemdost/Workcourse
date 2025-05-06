@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0id5a0t" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.3.1">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0id5a0t" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.6.1">
   <bpmn:collaboration id="Collaboration_1ijezyi">
     <bpmn:participant id="Participant_04i35nf" processRef="Process_1co9mrn" />
     <bpmn:textAnnotation id="TextAnnotation_1f8tpbc">
@@ -18,7 +18,7 @@ string model;</bpmn:text>
     </bpmn:textAnnotation>
     <bpmn:textAnnotation id="TextAnnotation_0hcyw4y">
       <bpmn:text>Pay:
-price to seller;
+price to Seller;
 End:
 Failed</bpmn:text>
     </bpmn:textAnnotation>
@@ -127,12 +127,12 @@ uint price = newPrice;</bpmn:text>
       <bpmndi:BPMNShape id="Participant_04i35nf_di" bpmnElement="Participant_04i35nf" isHorizontal="true">
         <dc:Bounds x="156" y="80" width="1514" height="1120" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_02kryzi_di" bpmnElement="Lane_02kryzi" isHorizontal="true">
-        <dc:Bounds x="186" y="80" width="1484" height="540" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_1im43se_di" bpmnElement="Lane_1im43se" isHorizontal="true">
         <dc:Bounds x="186" y="620" width="1484" height="580" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_02kryzi_di" bpmnElement="Lane_02kryzi" isHorizontal="true">
+        <dc:Bounds x="186" y="80" width="1484" height="540" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1xc67wr_di" bpmnElement="Activity_1xc67wr">
@@ -235,6 +235,34 @@ uint price = newPrice;</bpmn:text>
           <dc:Bounds x="1152" y="273" width="15" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1f8tpbc_di" bpmnElement="TextAnnotation_1f8tpbc">
+        <dc:Bounds x="500" y="220" width="129.99056329849012" height="112.65969802555169" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0yu6ok5_di" bpmnElement="TextAnnotation_0yu6ok5">
+        <dc:Bounds x="450" y="700" width="99.99274099883856" height="40.99520905923345" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0agh5ni_di" bpmnElement="TextAnnotation_0agh5ni">
+        <dc:Bounds x="600" y="700" width="99.99274099883856" height="40.99520905923345" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0hcyw4y_di" bpmnElement="TextAnnotation_0hcyw4y">
+        <dc:Bounds x="980" y="870" width="100" height="69.98922413793103" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0rfdulj_di" bpmnElement="TextAnnotation_0rfdulj">
+        <dc:Bounds x="990" y="640" width="99.99274099883856" height="40.65040650406504" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1rc8h96_di" bpmnElement="TextAnnotation_1rc8h96">
+        <dc:Bounds x="990" y="260" width="99.99274099883856" height="40.65040650406504" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1rf2185_di" bpmnElement="TextAnnotation_1rf2185">
+        <dc:Bounds x="1360" y="390" width="99.99274099883856" height="54.587688734030195" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1ycj7bm_di" bpmnElement="Association_1ycj7bm">
         <di:waypoint x="438" y="780" />
         <di:waypoint x="475" y="741" />
@@ -247,50 +275,22 @@ uint price = newPrice;</bpmn:text>
         <di:waypoint x="960" y="677" />
         <di:waypoint x="990" y="668" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0a1x354_di" bpmnElement="Association_0a1x354">
-        <di:waypoint x="957" y="943" />
-        <di:waypoint x="980" y="925" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0n826r1_di" bpmnElement="Association_0n826r1">
         <di:waypoint x="958" y="335" />
         <di:waypoint x="1005" y="301" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_1jmciy8_di" bpmnElement="Association_1jmciy8">
-        <di:waypoint x="1348" y="470" />
-        <di:waypoint x="1372" y="445" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_1vnor85_di" bpmnElement="Association_1vnor85">
         <di:waypoint x="443" y="331" />
         <di:waypoint x="500" y="280" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_0yu6ok5_di" bpmnElement="TextAnnotation_0yu6ok5">
-        <dc:Bounds x="450" y="700" width="99.99274099883856" height="40.99520905923345" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0agh5ni_di" bpmnElement="TextAnnotation_0agh5ni">
-        <dc:Bounds x="600" y="700" width="99.99274099883856" height="40.99520905923345" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0rfdulj_di" bpmnElement="TextAnnotation_0rfdulj">
-        <dc:Bounds x="990" y="640" width="99.99274099883856" height="40.65040650406504" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1rc8h96_di" bpmnElement="TextAnnotation_1rc8h96">
-        <dc:Bounds x="990" y="260" width="99.99274099883856" height="40.65040650406504" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1f8tpbc_di" bpmnElement="TextAnnotation_1f8tpbc">
-        <dc:Bounds x="500" y="220" width="129.99056329849012" height="112.65969802555169" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_1rf2185_di" bpmnElement="TextAnnotation_1rf2185">
-        <dc:Bounds x="1360" y="390" width="99.99274099883856" height="54.587688734030195" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0hcyw4y_di" bpmnElement="TextAnnotation_0hcyw4y">
-        <dc:Bounds x="980" y="870" width="99.99274099883856" height="69.994918699187" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1jmciy8_di" bpmnElement="Association_1jmciy8">
+        <di:waypoint x="1348" y="470" />
+        <di:waypoint x="1372" y="445" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0a1x354_di" bpmnElement="Association_0a1x354">
+        <di:waypoint x="957" y="943" />
+        <di:waypoint x="980" y="925" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

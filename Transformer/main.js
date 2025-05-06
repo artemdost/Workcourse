@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog, Menu } = require("electron");
 const path = require("path");
 const { spawn } = require("child_process");
+const fs = require("fs");
 
 let mainWindow;
 
@@ -46,6 +47,25 @@ async function openFileDialog() {
   }
 }
 
+function openAddressInputWindow(lanes) {
+  const inputWindow = new BrowserWindow({
+    width: 500,
+    height: 100 + lanes.length * 80,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+      contextIsolation: true,
+    },
+    modal: true,
+    parent: mainWindow,
+  });
+
+  inputWindow.loadFile("input.html");
+
+  inputWindow.webContents.once("did-finish-load", () => {
+    inputWindow.webContents.send("lanes-data", lanes);
+  });
+}
+
 function runPythonToJson(bpmnFilePath) {
   const pythonProcess = spawn("python", [
     path.join(__dirname, "Converters", "toJson.py"),
@@ -62,10 +82,14 @@ function runPythonToJson(bpmnFilePath) {
 
   pythonProcess.on("close", (code) => {
     if (code === 0) {
-      console.log(
-        "JSON generation completed. Now generating Solidity contract..."
-      );
-      runPythonToSol();
+      console.log("JSON generation completed.");
+      const jsonPath = path.join(__dirname, "Temp", "result.json");
+      const jsonData = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+      if (jsonData.lanes && jsonData.lanes.length > 0) {
+        openAddressInputWindow(jsonData.lanes);
+      } else {
+        console.error("No lanes found in JSON.");
+      }
     } else {
       console.error("Error in generating JSON.");
     }
@@ -88,14 +112,31 @@ function runPythonToSol() {
   pythonProcess.on("close", (code) => {
     if (code === 0) {
       console.log("Solidity contract generated successfully.");
-      // Убираем вызов функции деплоя
-      // runHardhatDeploy(); // Эта строка теперь не нужна
     } else {
       console.error("Error in generating Solidity contract.");
     }
   });
 }
 
+ipcMain.on("addresses-submitted", (event, data) => {
+  const fs = require("fs");
+  const jsonPath = path.join(__dirname, "Temp", "result.json");
+  const jsonData = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+
+  jsonData.lanes = jsonData.lanes.map((lane) => ({
+    ...lane,
+    address: `"${
+      data[lane.lane_name] || "0x0000000000000000000000000000000000000000"
+    }"`,
+  }));
+
+  fs.writeFileSync(jsonPath, JSON.stringify(jsonData, null, 2));
+  console.log("Updated addresses in result.json");
+
+  runPythonToSol(); // Продолжение обработки
+});
+
+// Остальное:
 app.whenReady().then(createWindow);
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();

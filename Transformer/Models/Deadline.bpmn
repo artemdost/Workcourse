@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0hc67r7" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.3.1">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0hc67r7" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.6.1">
   <bpmn:collaboration id="Collaboration_1sc60gd">
     <bpmn:participant id="Participant_1isrnj8" processRef="Process_07oxnp6" />
     <bpmn:textAnnotation id="TextAnnotation_1uw8vh2">
@@ -49,7 +49,7 @@ Failed</bpmn:text>
   </bpmn:collaboration>
   <bpmn:process id="Process_07oxnp6" isExecutable="false">
     <bpmn:laneSet id="LaneSet_0458spb">
-      <bpmn:lane id="Lane_0663jgm" name="Worker = 0x8EE57a0966Db56BaDbd3Da402e8D3055D0476fbd">
+      <bpmn:lane id="Lane_0663jgm" name="Worker">
         <bpmn:flowNodeRef>StartEvent_0s3s15i</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1qqszb9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1i7nijx</bpmn:flowNodeRef>
@@ -57,11 +57,11 @@ Failed</bpmn:text>
         <bpmn:flowNodeRef>Activity_05zkfbs</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1b41p92</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_04aa8es" name="Moderator = 0x8EE57a0966Db56BaDbd3Da402e8D3055D0476fbd">
+      <bpmn:lane id="Lane_04aa8es" name="Moderator">
         <bpmn:flowNodeRef>Activity_1a3pp3g</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0nx5rmh</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_06p588g" name="Administator = 0x8EE57a0966Db56BaDbd3Da402e8D3055D0476fbd">
+      <bpmn:lane id="Lane_06p588g" name="Administator">
         <bpmn:flowNodeRef>Activity_0lbnb9c</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1tizgb5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0fkm25e</bpmn:flowNodeRef>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enter Addresses</title>
+  </head>
+  <body>
+    <form id="addressForm"></form>
+    <button onclick="submit()">Submit</button>
+    <script>
+      window.api.onLanesData((lanes) => {
+        const form = document.getElementById("addressForm");
+        lanes.forEach((lane) => {
+          const label = document.createElement("label");
+          label.innerText = lane.lane_name;
+          const input = document.createElement("input");
+          input.name = lane.lane_name;
+          input.type = "text";
+          form.appendChild(label);
+          form.appendChild(input);
+          form.appendChild(document.createElement("br"));
+        });
+      });
+
+      function submit() {
+        const inputs = document.querySelectorAll("input");
+        const data = {};
+        inputs.forEach((input) => {
+          data[input.name] = input.value;
+        });
+        window.api.submitAddresses(data);
+        window.close();
+      }
+    </script>
+  </body>
+</html>
