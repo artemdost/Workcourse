@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog, Menu } = require("electron");
 const path = require("path");
 const { spawn } = require("child_process");
 const fs = require("fs");
+const { exec } = require("child_process");
 
 let mainWindow;
 
@@ -96,6 +97,34 @@ function runPythonToJson(bpmnFilePath) {
   });
 }
 
+function runHardhatDeploy() {
+  // Поднимемся на одну папку выше
+  process.chdir(path.join(__dirname, ".."));
+
+  // Перейдем в папку Hardhat
+  process.chdir("Hardhat");
+
+  const hardhatProcess = exec(
+    "npx hardhat run scripts/deploy.ts --network arbitrum_sepolia"
+  );
+
+  hardhatProcess.stdout.on("data", (data) => {
+    console.log(`[Hardhat stdout]:\n${data}`);
+  });
+
+  hardhatProcess.stderr.on("data", (data) => {
+    console.error(`[Hardhat stderr]:\n${data}`);
+  });
+
+  hardhatProcess.on("close", (code) => {
+    if (code === 0) {
+      console.log("Hardhat deploy completed successfully.");
+    } else {
+      console.error(`Hardhat process exited with code ${code}`);
+    }
+  });
+}
+
 function runPythonToSol() {
   const pythonProcess = spawn("python", [
     path.join(__dirname, "Converters", "toSol.py"),
@@ -112,6 +141,7 @@ function runPythonToSol() {
   pythonProcess.on("close", (code) => {
     if (code === 0) {
       console.log("Solidity contract generated successfully.");
+      runHardhatDeploy(); // <-- Переносим сюда!
     } else {
       console.error("Error in generating Solidity contract.");
     }
@@ -125,9 +155,8 @@ ipcMain.on("addresses-submitted", (event, data) => {
 
   jsonData.lanes = jsonData.lanes.map((lane) => ({
     ...lane,
-    address: `"${
-      data[lane.lane_name] || "0x0000000000000000000000000000000000000000"
-    }"`,
+    address:
+      data[lane.lane_name] || "0x0000000000000000000000000000000000000000",
   }));
 
   fs.writeFileSync(jsonPath, JSON.stringify(jsonData, null, 2));

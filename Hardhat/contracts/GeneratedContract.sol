@@ -16,9 +16,9 @@ contract GeneratedContract {
     Status public currentStatus = Status.Started;
 
     // Role addresses
-    address public Worker = "0x136636E6dCff21058012CCD0fD86f9CbC999E40a";
-    address public Moderator = "0x136636E6dCff21058012CCD0fD86f9CbC999E40a";
-    address public Administator = "0x136636E6dCff21058012CCD0fD86f9CbC999E40a";
+    address public Worker = 0x9c43FF350fF9216c3e4dDa777506471E5A6DfdBd;
+    address public Moderator = 0x9c43FF350fF9216c3e4dDa777506471E5A6DfdBd;
+    address public Administator = 0x9c43FF350fF9216c3e4dDa777506471E5A6DfdBd;
 
     // Role modifiers
     modifier onlyWorker() {

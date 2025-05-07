@@ -2,15 +2,15 @@
   "lanes": [
     {
       "lane_name": "Worker",
-      "address": "\"0x136636E6dCff21058012CCD0fD86f9CbC999E40a\""
+      "address": "0x9c43FF350fF9216c3e4dDa777506471E5A6DfdBd"
     },
     {
       "lane_name": "Moderator",
-      "address": "\"0x136636E6dCff21058012CCD0fD86f9CbC999E40a\""
+      "address": "0x9c43FF350fF9216c3e4dDa777506471E5A6DfdBd"
     },
     {
       "lane_name": "Administator",
-      "address": "\"0x136636E6dCff21058012CCD0fD86f9CbC999E40a\""
+      "address": "0x9c43FF350fF9216c3e4dDa777506471E5A6DfdBd"
     }
   ],
   "functions": [
